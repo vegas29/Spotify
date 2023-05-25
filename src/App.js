@@ -1,12 +1,21 @@
-import { Button } from 'semantic-ui-react';
+import { useState } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { LoggedNavigation } from './routes/LoggedNavigation';
+import { AuthPage } from './pages';
 
 export const App = () => {
-  return (
-    <>    
-      <h1>Spotify</h1>
-      <Button>Click Here</Button>
-    </>
-  )
+
+  const [user, setUser] = useState(false);
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    setUser();
+  });
+
+  // if (!user) return null;
+
+  return user ? <LoggedNavigation/> : <AuthPage/>;
+
 }
 
 
