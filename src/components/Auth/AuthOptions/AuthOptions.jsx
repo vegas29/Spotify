@@ -1,13 +1,26 @@
 import { Button } from "semantic-ui-react";
+import "./AuthOptions.scss";
 
 export const AuthOptions = ({openLogin, openRegister}) => {
 
     return (
-        <div style={{backgroundColor: '#000'}}>
-            <h1>AuthOptions</h1>
+        <div className="auth-options">
 
-            <Button primary onClick={openRegister}>Register</Button>
-            <Button secondary onClick={openLogin}>Login</Button>
+            <h1>Millones de canciones, en Spotify</h1>
+
+            <Button
+                className="register"
+                onClick={openRegister}
+            >
+                Register
+            </Button>
+
+            <Button 
+                className="login" 
+                onClick={openLogin}
+            >
+                Login
+            </Button>
         </div>
     )
 }

@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Image } from "semantic-ui-react";
 import { AuthOptions, Login, Register } from "../../components/Auth/";
+import { logoWhiteSpotify } from "../../assets";
+
+import "./AuthPage.scss";
 
 
 export const AuthPage = () => {
@@ -30,8 +33,15 @@ export const AuthPage = () => {
     }
 
     return (
-        <div>
-            {renderForm()}
+        <div className="auth">
+            <div className="auth__content">
+                <Image
+                    src={logoWhiteSpotify}
+                    alt="Spotify"
+                    className="auth__content-logo"
+                />
+                {renderForm()}
+            </div>
         </div>
     )
 }
