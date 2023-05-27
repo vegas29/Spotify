@@ -6,7 +6,7 @@ export const AuthOptions = ({openLogin, openRegister}) => {
     return (
         <div className="auth-options">
 
-            <h1>Millones de canciones, en Spotify</h1>
+            <h1>Millions of songs, on Spotify</h1>
 
             <Button
                 className="register"
