@@ -14,8 +14,6 @@ export const AuthPage = () => {
     const openRegister = () => setTypeForm('register');
     const goBack = () => setTypeForm(null);
 
-    console.log('typeForm', typeForm)
-
     const renderForm = () => {
 
         if (typeForm === "login") {

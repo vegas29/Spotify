@@ -1,21 +1,29 @@
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Image } from "semantic-ui-react";
-import { User } from "../../../api";
+import { Storage, User } from "../../../api";
 import { defaultUser } from "../../../assets";
 import "./AvatarUpdate.scss";
 
 export const AvatarUpdate = () => {
 
     const auth = new User();
-    const { getMe } = auth;
+    const storage = new Storage();
 
-    const { photoURL } = getMe()
+    const { getMe, updateAvatarUser } = auth;
+    const { uploadFile, getUrlFile } = storage;
+
+    const { photoURL, uid } = getMe()
     const [avatarUrl, setAvatarUrl] = useState(photoURL || defaultUser);
 
     const onDrop = useCallback( async(acceptedFile) => {
         const file =acceptedFile[0];
         setAvatarUrl(URL.createObjectURL(file));
+        const { metadata } = await uploadFile(file, "avatar", uid);
+        const { fullPath } = metadata;
+        const url = await getUrlFile(fullPath);
+        const response = await updateAvatarUser(url);
+        console.log({response})
     }, []);
 
     const { getRootProps, getInputProps } = useDropzone({onDrop});
