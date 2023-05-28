@@ -9,7 +9,7 @@ export const App = () => {
   const auth = getAuth();
 
   onAuthStateChanged(auth, (user) => {
-    setUser();
+    setUser(user);
   });
 
   // if (!user) return null;

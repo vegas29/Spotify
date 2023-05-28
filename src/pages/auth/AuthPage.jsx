@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Image } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 import { AuthOptions, Login, Register } from "../../components/Auth/";
 import { logoWhiteSpotify } from "../../assets";
 
