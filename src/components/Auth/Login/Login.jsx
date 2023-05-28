@@ -79,7 +79,10 @@ export const Login = ({ openRegister, goBack }) => {
             </Form>
 
             <div className="login-form__options">
-                <p onClick={goBack}>Go Back</p>
+                <p onClick={goBack}>
+                    <Icon name="angle left"/>
+                    Go back
+                </p>
                 <p>
                     ¿Don't have a account? <span onClick={openRegister}>Register now!</span>
                 </p>
