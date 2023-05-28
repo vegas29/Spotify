@@ -32,7 +32,7 @@ export const TopBar = () => {
                     <span>{alias}</span>
                 </Link>
 
-                <Icon name="power" onClick={ () => logout() } link />
+                <Icon className="power" onClick={ () => logout() } link />
 
             </div>
         </div>
