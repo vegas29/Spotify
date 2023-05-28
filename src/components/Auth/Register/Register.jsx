@@ -4,12 +4,14 @@ import { initialValues, validationSchema } from "./Register.data";
 import { Form, Icon } from "semantic-ui-react";
 import "./Register.scss";
 import { Auth } from "../../../api";
+import { Alert } from "../../UI/Alert";
 
 export const Register = ({ openLogin, goBack }) => {
 
     const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState();
 
-    const auth = new Auth();
+    const { register } = new Auth();
 
     const formik = useFormik({
         initialValues: initialValues(),
@@ -17,9 +19,14 @@ export const Register = ({ openLogin, goBack }) => {
         validateOnChange: false,
         onSubmit: async({email, password}) => {
             try {
-                await auth.register(email, password);
+                await register(email, password);
             } catch (error) {
                 console.error(error);
+                setErrorMessage(error?.message);
+    
+                setTimeout(() => {
+                    setErrorMessage();
+                }, 2000);
             }
         },
     });
@@ -30,7 +37,12 @@ export const Register = ({ openLogin, goBack }) => {
 
             <h1>Start a listen with a free spotify account</h1>
 
+            { errorMessage && (
+                <Alert errorMessage={errorMessage} />
+            )}
+
             <Form onSubmit={formik.handleSubmit}>
+
                 <Form.Input 
                     type="text" 
                     placeholder="Email" 
