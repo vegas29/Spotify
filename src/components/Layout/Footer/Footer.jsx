@@ -1,5 +1,6 @@
 import { Icon, Image, Input } from "semantic-ui-react";
 import "./Footer.scss";
+import { Player } from "../../Player";
 
 export const Footer = () => {
 
@@ -11,7 +12,7 @@ export const Footer = () => {
             </div>
 
             <div className="footer__center">
-                <p>Player</p>
+                <Player/>
             </div>
 
             <div className="footer__right">
