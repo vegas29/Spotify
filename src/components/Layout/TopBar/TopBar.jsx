@@ -7,11 +7,11 @@ import "./TopBar.scss";
 export const TopBar = () => {
 
     const { logout } = new Auth();
-    const user = new User();
+    const { getMe } = new User();
 
     const navigation = useNavigate();
 
-    const { displayName, photoURL } = user.getMe();
+    const { displayName, photoURL } = getMe();
 
     const alias = displayName || "My account";
     const avatar = photoURL || defaultUser;
