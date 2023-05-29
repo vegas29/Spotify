@@ -12,8 +12,9 @@ function createWindow() {
     width: 1500,
     height: 1000,
     title: "Spotify",
-    // titleBarStyle: "hiddenInset",
-    // resizable: false,
+    titleBarStyle: "hiddenInset",
+    resizable: false,
+    // kiosk: true
   });
   mainWindow.loadURL(
     isDev
