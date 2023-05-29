@@ -10,6 +10,6 @@ export function initialValues() {
 export function validationSchema() {
     return Yup.object({
         file: Yup.string().required(true),
-        name: Yup.string().required(true),
+        name: Yup.string().required('The name is required'),
     });
 }

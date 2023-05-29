@@ -54,7 +54,7 @@ export const AddSongForm = ({ onClose }) => {
     const formik = useFormik({
         initialValues: initialValues(),
         validationSchema: validationSchema(),
-        validateOnChange: false,
+        validateOnChange: true,
         onSubmit: async (formValue) => {
             try {
                 const { file, name, album } = formValue;

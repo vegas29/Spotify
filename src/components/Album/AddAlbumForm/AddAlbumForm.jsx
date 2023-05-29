@@ -50,7 +50,7 @@ export const AddAlbumForm = ({onClose}) => {
     const formik = useFormik({
         initialValues: initialValues(),
         validationSchema: validationSchema(),
-        validateOnChange: false,
+        validateOnChange: true,
         onSubmit: async (formValue) => {
             try {
                 const { name, artist } = formValue;

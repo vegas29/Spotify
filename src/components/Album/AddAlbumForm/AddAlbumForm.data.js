@@ -11,7 +11,7 @@ export function initialValues() {
 export function validationSchema() {
   return Yup.object({
     image: Yup.string().required(true),
-    name: Yup.string().required(true),
-    artist: Yup.string().required(true),
+    name: Yup.string().required('The name is required'),
+    artist: Yup.string().required('The artist is required'),
   });
 }
