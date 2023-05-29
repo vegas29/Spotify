@@ -14,7 +14,6 @@ export const ArtistsPage = () => {
       (async () => {
         try {
           const response = await obtainAll();
-          console.log(response)
           setArtists(response);
         } catch (error) {
           console.error(error);
@@ -24,7 +23,7 @@ export const ArtistsPage = () => {
   
     return (
       <div className="artists-page">
-        <h1>Artistas</h1>
+        <h1>Artists</h1>
         <ListArtists artists={artists} />
       </div>
     );

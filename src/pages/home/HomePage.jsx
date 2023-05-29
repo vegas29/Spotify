@@ -71,17 +71,17 @@ export const HomePage = () => {
             />
 
             <div className="home-page__slider">
-                <h2>Últimos artistas</h2>
+                <h2>Last artists</h2>
                 {artists && <Slider data={artists} basePath="artists" />}
             </div>
 
             <div className="home-page__slider">
-                <h2>Últimos álbumes</h2>
+                <h2>Last albums</h2>
                 {albums && <Slider data={albums} basePath="albums" />}
             </div>
 
             <div className="home-page__slider">
-                <h2>Ultimas canciones</h2>
+                <h2>Last songs</h2>
                 {songs && <Slider data={songs} song />}
             </div>
         </div>
