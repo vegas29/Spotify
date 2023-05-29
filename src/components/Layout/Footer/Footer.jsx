@@ -1,14 +1,17 @@
 import { Icon, Image, Input } from "semantic-ui-react";
-import "./Footer.scss";
 import { Player } from "../../Player";
+import { usePlayer } from "../../../hooks";
+import "./Footer.scss";
 
 export const Footer = () => {
 
+    const { song, miniature } = usePlayer();
+    
     return (
         <div className="footer">
             <div className="footer__left">             
-                <Image src={null} />
-                <p>Song name</p>
+                {miniature && <Image src={miniature} />}
+                {song && <p>{song.name}</p>}
             </div>
 
             <div className="footer__center">
