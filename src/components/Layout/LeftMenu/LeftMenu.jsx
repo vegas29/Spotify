@@ -3,8 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
 import { Modal } from "../../Modal/Modal";
 import { AddAlbumForm } from "../../Album/AddAlbumForm";
-import "./LeftMenu.scss";
 import { NewArtistForm } from "../../Artist/NewArtistForm/NewArtistForm";
+import { AddSongForm } from "../../Song/AddSongForm";
+import "./LeftMenu.scss";
 
 export const LeftMenu = () => {
 
@@ -35,7 +36,7 @@ export const LeftMenu = () => {
     }
     if (type === "song") {
       setTitleModal("New song");
-      setContentModal(<AddAlbumForm onClose={closeModal} />);
+      setContentModal(<AddSongForm onClose={closeModal} />);
     }
 
     setShowModal(true);

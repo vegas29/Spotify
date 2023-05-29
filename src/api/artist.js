@@ -1,16 +1,16 @@
 import {
-    setDoc,
-    doc,
-    collection,
-    getDocs,
-    getDoc,
-    limit,
-    orderBy,
-    query,
-  } from "firebase/firestore";
-  import { v4 as uuidv4 } from "uuid";
-  import { map } from "lodash";
-  import { db } from "../utils";
+  setDoc,
+  doc,
+  collection,
+  getDocs,
+  getDoc,
+  limit,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { v4 as uuidv4 } from "uuid";
+import { map } from "lodash";
+import { db } from "../utils";
   
   export class Artist {
       
@@ -19,7 +19,6 @@ import {
         const idArtist = uuidv4();
         const created_at = new Date();
         const data = { id: idArtist, image, name, created_at };
-  
         const docRef = doc(db, 'artists', idArtist);
         await setDoc(docRef, data);
       } catch (error) {
@@ -40,8 +39,8 @@ import {
     async getArtist(id) {
       try {
         const docRef = doc(db, 'artists', id);
-        const { data } = await getDoc(docRef);
-        return data();
+        const snapshot = await getDoc(docRef);
+        return snapshot.data();
       } catch (error) {
         throw error;
       }

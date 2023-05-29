@@ -19,11 +19,11 @@ export const AvatarUpdate = () => {
     const onDrop = useCallback( async(acceptedFile) => {
         const file =acceptedFile[0];
         setAvatarUrl(URL.createObjectURL(file));
+        console.log({file})
         const { metadata } = await uploadFile(file, "avatar", uid);
         const { fullPath } = metadata;
         const url = await getUrlFile(fullPath);
         const response = await updateAvatarUser(url);
-        console.log({response})
     }, []);
 
     const { getRootProps, getInputProps } = useDropzone({onDrop});

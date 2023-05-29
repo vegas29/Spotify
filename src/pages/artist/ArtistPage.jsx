@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Song } from "../../api/song";
+import { map } from "lodash";
 import { Album, Artist } from "../../api";
+import { Slider } from "../../components/Slider";
+import { ArtistBanner } from "../../components/Artist/ArtistBanner";
+import './ArtistPage.scss';
 
 export const ArtistPage = () => {
 
@@ -17,6 +22,7 @@ export const ArtistPage = () => {
     const { getAlbumsByArtist } = album;
 
     const song = new Song();
+    const { obtainAllByAlbum } = song;
 
     useEffect(() => {
         (async () => {
@@ -46,7 +52,7 @@ export const ArtistPage = () => {
                 try {
                     let data = [];
                     for await (const item of albums) {
-                        const result = await songController.obtainAllByAlbum(item.id);
+                        const result = await obtainAllByAlbum(item.id);
                         const dataTemp = map(result, (dataSong) => ({
                             ...dataSong,
                             image: item.image,
@@ -63,7 +69,7 @@ export const ArtistPage = () => {
 
     return (
         <div className="artist-page">
-            <ArtistBanner image={artist.image} name={artist.name} />
+            <ArtistBanner image={artist?.image} name={artist?.name} />
 
             <div className="artist-page__slider">
                 <h2>Albumes</h2>

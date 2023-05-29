@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { LoggedNavigation } from './routes/LoggedNavigation';
 import { AuthPage } from './pages';
+import { PlayerProvider } from './context';
 
 export const App = () => {
 
@@ -14,7 +15,14 @@ export const App = () => {
 
   // if (!user) return null;
 
-  return user ? <LoggedNavigation/> : <AuthPage/>;
+  return user ?  (
+    <PlayerProvider>
+      <LoggedNavigation />
+    </PlayerProvider>
+  )
+  : (
+    <AuthPage/> 
+  )
 
 }
 

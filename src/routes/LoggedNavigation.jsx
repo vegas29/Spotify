@@ -9,7 +9,7 @@ export const LoggedNavigation = () => {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/artists" element={<ArtistsPage />} />
-                    <Route path="/artist/:id" element={<ArtistPage />} />
+                    <Route path="/artists/:id" element={<ArtistPage />} />
                     <Route path="/albums" element={<AlbumsPage />} />
                     <Route path="/albums/:id" element={<AlbumPage />} />
                     <Route path="/profile" element={<ProfilePage />} />

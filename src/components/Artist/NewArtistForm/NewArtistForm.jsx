@@ -2,25 +2,24 @@ import { useFormik } from "formik";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Form, Image } from "semantic-ui-react";
-import { v4 as uuidv4 } from "uuid";
 import classNames from "classnames";
 import { initialValues, validationSchema } from "./NewArtistForm.data";
-import { Artist, Storage } from "../../../api";
+import { Artist } from "../../../api";
 import { noImage } from "../../../assets";
+import { fileUpload } from "../../../helpers/fileUpload";
 import "./NewArtistForm.scss";
 
 export const NewArtistForm = ({onClose}) => {
 
     const [image, setImage] = useState(null);
-
-    const storage = new Storage();
-    const { uploadFile, getUrlFile } = storage;
+    const [fileUrl, setFileUrl] = useState(null);
 
     const artist = new Artist();
     const { create } = artist;
 
     const onDrop = useCallback(async (acceptedFile) => {
         const file = acceptedFile[0];
+        setFileUrl(file);
         setImage(URL.createObjectURL(file));
         formik.setFieldValue("file", file);
     }, []);
@@ -33,15 +32,8 @@ export const NewArtistForm = ({onClose}) => {
         validateOnChange: false,
         onSubmit: async (formValue) => {
             try {
-                const { file, name } = formValue;
-                const response = await uploadFile(
-                    file,
-                    "artist",
-                    uuidv4()
-                );
-                const url = await getUrlFile(
-                    response.metadata.fullPath
-                );
+                const { name } = formValue;
+                const url = await fileUpload(fileUrl);
                 await create(url, name);
                 onClose();
             } catch (error) {
