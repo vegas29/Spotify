@@ -72,13 +72,21 @@ export const ArtistPage = () => {
             <ArtistBanner image={artist?.image} name={artist?.name} />
 
             <div className="artist-page__slider">
-                <h2>Albumes</h2>
-                <Slider data={albums} basePath="albums" />
+                <h2>Albums</h2>
+                {albums.length ? (
+                    <Slider data={albums} basePath="albums" />
+                ) : (
+                    <p>This artist has no albums</p>
+                )}
             </div>
 
             <div className="artist-page__slider">
-                <h2>Canciones</h2>
-                <Slider data={songs} song />
+                <h2>Songs</h2>
+                {songs.length ? (
+                    <Slider data={songs} song />
+                ) : (
+                    <p>This artist has no songs</p>
+                )}
             </div>
         </div>
     )

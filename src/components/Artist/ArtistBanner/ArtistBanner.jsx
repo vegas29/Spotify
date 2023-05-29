@@ -8,7 +8,7 @@ export function ArtistBanner({ image, name }) {
                 className="artist-banner__image"
                 style={{ backgroundImage: `url(${image})` }}
             >
-                <span>Artista</span>
+                <span>Artist</span>
                 <h1>{name}</h1>
             </div>
 

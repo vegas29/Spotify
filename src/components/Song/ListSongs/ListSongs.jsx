@@ -13,7 +13,7 @@ export const ListSongs = ({ songs, miniature }) => {
     };
 
     if (size(songs) === 0) {
-        return <p className="no-songs">Este album aun no tiene canciónes</p>;
+        return <p className="no-songs">This album has no songs yet</p>;
     }
 
     return (
