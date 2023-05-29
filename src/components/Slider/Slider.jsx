@@ -10,7 +10,7 @@ export const Slider = ({ data, basePath, song }) => {
 
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
         slidesToShow: 5,
         swipeToSlide: true,
         centerMode: true,
@@ -31,6 +31,7 @@ export const Slider = ({ data, basePath, song }) => {
     return (
         <Slick {...settings} className="slider">
             {map(data, (item) => {
+                <p>hola</p>
                 if (song) {
                     return (
                         <div
