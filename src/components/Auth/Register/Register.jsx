@@ -16,7 +16,7 @@ export const Register = ({ openLogin, goBack }) => {
     const formik = useFormik({
         initialValues: initialValues(),
         validationSchema: validationSchema(),
-        validateOnChange: false,
+        validateOnChange: true,
         onSubmit: async({email, password}) => {
             try {
                 await register(email, password);
