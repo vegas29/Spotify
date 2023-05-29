@@ -22,9 +22,9 @@ export const AlbumsPage = () => {
     }, []);
 
     return (
-        <div className="albums-page">
-            <h1>Álbumes</h1>
-            <ListAlbums albums={albums} />
-        </div>
+      <div className="albums-page">
+        <h1>Álbums</h1>
+        <ListAlbums albums={albums} />
+      </div>
     )
 }

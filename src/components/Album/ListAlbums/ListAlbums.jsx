@@ -23,7 +23,7 @@ export const ListAlbums = ({albums}) => {
                         to={`/albums/${album.id}`}
                         className="list-albums__album"
                     >
-                        <Image src={album.image} alt={album.name} />
+                        <Image className='list-albums__image' src={album.image} alt={album.name} />
                         <p>{album.name}</p>
                     </Grid.Column>
                 ))}
