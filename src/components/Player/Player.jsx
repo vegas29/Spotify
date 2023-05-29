@@ -28,6 +28,7 @@ export const Player = () => {
                 total={totalSeconds}
                 value={currentSeconds}
                 size="tiny"
+                color="green"
             />
 
             <ReactPlayer 
