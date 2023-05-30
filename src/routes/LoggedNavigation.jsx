@@ -1,10 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { HomePage, ArtistsPage, ArtistPage, AlbumsPage, AlbumPage, ProfilePage } from "../pages";
 import { LoggedLayout } from "../layouts";
 
 export const LoggedNavigation = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <LoggedLayout>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -15,6 +15,6 @@ export const LoggedNavigation = () => {
                     <Route path="/profile" element={<ProfilePage />} />
                 </Routes>
             </LoggedLayout>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
