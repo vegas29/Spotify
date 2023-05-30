@@ -14,7 +14,7 @@ export const Loading = () => {
     const { View } = useLottie(options);
 
     return (
-        <div style={{height: '100vh', width: '100wh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{height: '100vh', width: '100wh', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#171717'}}>
             {View}
         </div>
     )

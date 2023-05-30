@@ -3,6 +3,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { LoggedNavigation } from './routes/LoggedNavigation';
 import { AuthPage } from './pages';
 import { PlayerProvider } from './context';
+import { User } from './api';
+import { Loading } from './components/UI/Loading';
 
 export const App = () => {
 
@@ -13,7 +15,7 @@ export const App = () => {
     setUser(user);
   });
 
-  // if (!user) return null;
+  if (!user) return  <Loading/>;
 
   return user ?  (
     <PlayerProvider>
