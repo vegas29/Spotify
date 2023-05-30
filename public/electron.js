@@ -21,6 +21,7 @@ function createWindow() {
       ? "http://localhost:3000"
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
+  mainWindow.removeMenu(true);
 
 //   if (isDev) mainWindow.webContents.openDevTools();
 
