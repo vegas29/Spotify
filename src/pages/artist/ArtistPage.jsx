@@ -73,7 +73,7 @@ export const ArtistPage = () => {
 
             <div className="artist-page__slider">
                 <h2>Albums</h2>
-                {albums.length ? (
+                {albums?.length ? (
                     <Slider data={albums} basePath="albums" />
                 ) : (
                     <p>This artist has no albums</p>
@@ -82,7 +82,7 @@ export const ArtistPage = () => {
 
             <div className="artist-page__slider">
                 <h2>Songs</h2>
-                {songs.length ? (
+                {songs?.length ? (
                     <Slider data={songs} song />
                 ) : (
                     <p>This artist has no songs</p>

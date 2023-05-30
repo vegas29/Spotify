@@ -1,9 +1,21 @@
-import { Loader } from 'semantic-ui-react';
+import { useLottie }  from "lottie-react";
+import { loader } from '../../assets';
 
 export const Loading = () => {
+
+    const options = {
+        animationData: loader,
+        loop: true,
+        style: {
+            height: 200
+        }
+    };
+
+    const { View } = useLottie(options);
+
     return (
-        <Loader active inline="centered" size="large">
-            Loading...
-        </Loader>
+        <div style={{height: '100vh', width: '100wh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            {View}
+        </div>
     )
 }

@@ -7,8 +7,6 @@ import "./Footer.scss";
 export const Footer = () => {
 
     const { song, miniature, volume, setVolume } = usePlayer();
-
-    console.log({miniature})
     
     return (
         <div className="footer">
@@ -19,7 +17,7 @@ export const Footer = () => {
                     <Image className="footer__left-image" src={noImage} />
                 )}
                 {song ? (
-                    <p>{song.name}</p>
+                    <p>{song?.name}</p>
                 ) : (
                     <p>No song</p>
                 )}
