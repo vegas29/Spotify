@@ -73,7 +73,7 @@ export const HomePage = () => {
             <div className="home-page__slider">
                 <h2>Last artists</h2>
                 {
-                    (artists.length > 0) 
+                    (artists?.length > 0) 
                     ? (<Slider data={artists} basePath="artists" />)
                     : (<p>There are no artist, start by creating one</p>)
                 }
@@ -82,7 +82,7 @@ export const HomePage = () => {
             <div className="home-page__slider">
                 <h2>Last albums</h2>
                 {
-                    (albums.length > 0) 
+                    (albums?.length > 0) 
                     ? (<Slider data={albums} basePath="albums" />)
                     : (<p>There are not albums, start by creating one</p>)
                 }
@@ -91,7 +91,7 @@ export const HomePage = () => {
             <div className="home-page__slider">
                 <h2>Last songs</h2>
                 {
-                    (songs.length > 0) 
+                    (songs?.length > 0) 
                     ? (<Slider data={songs} song />)
                     : (<p>There are not songs, start by creating one</p>)
                 }
